@@ -16,12 +16,12 @@ app.config['JSONIFY_MIMETYPE'] = 'application/json; charset=utf-8'  # 设置返�
 @app.route('/getData', methods=['GET'])
 def getData():
     # csv
-    f = open('股票数据.csv', mode='w', encoding='utf-8', newline='')
-    csv_writer = csv.DictWriter(f, fieldnames=[
-        '股票代码', '股票名称', '当前价', '涨跌额', '涨跌幅', '年初至今', '成交量', '成交额', '换手率', '市盈率(TTM)',
-        '股息率', '市值'
-    ])
-    csv_writer.writeheader()
+    # f = open('股票数据.csv', mode='w', encoding='utf-8', newline='')
+    # csv_writer = csv.DictWriter(f, fieldnames=[
+    #     '股票代码', '股票名称', '当前价', '涨跌额', '涨跌幅', '年初至今', '成交量', '成交额', '换手率', '市盈率(TTM)',
+    #     '股息率', '市值'
+    # ])
+    # csv_writer.writeheader()
 
     content_list = []
 
@@ -50,7 +50,7 @@ def getData():
                 '股息率': item['dividend_yield'],
                 '市值': item['market_capital'],
             }
-            csv_writer.writerow(stock_dict)
+            # csv_writer.writerow(stock_dict)
 
             content_list.append(stock_dict)
             print(stock_dict)
